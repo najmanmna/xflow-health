@@ -30,7 +30,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* --- HERO SECTION --- */}
-    {/* <Hero /> */}
+    <Hero />
 {/* <TrustStrip /> */}
      {/* --- HOW IT WORKS (Process Bar) --- */}
    {/* <HowItWorks /> */}
@@ -41,7 +41,7 @@ export default function HomePage() {
       {/* --- PRICING (Comparison) --- */}
 {/* <Pricing /> */}
       {/* --- FOOTER (Compliance) --- */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
