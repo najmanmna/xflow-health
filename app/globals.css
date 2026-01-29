@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- 1. Brand Identity System --- */
+  
+  /* Primary: Trust & Authority (Deep Navy) */
+  --color-primary: #020438;
+  
+  /* Accent: Energy & Action (Electric Cyan) */
+  --color-accent: #00EAFF;
+  
+  /* Secondary: Softer Navy for gradients/hover */
+  --color-secondary: #1A1D4E;
+
+  /* Surfaces: Clinical Cleanliness */
+  --color-surface: #F8FAFC;   /* Light Gray Card Bg */
+  --color-surface-white: #FFFFFF;
+  
+  /* Typography Colors */
+  --color-main: #334155;     /* Slate-700 (Body Text) */
+  --color-heading: #020438;  /* Navy (Headings) */
+  --color-light: #94A3B8;    /* Slate-400 (Muted) */
+  --color-on-accent: #020438; /* Text on Cyan buttons */
+
+  /* Base Defaults */
+  --background: #FFFFFF;
+  --foreground: #334155;
+
+  /* Fonts (Matches layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* --- 2. Tailwind 4 Theme Configuration --- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Color Mappings */
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-secondary: var(--color-secondary);
+  --color-surface: var(--color-surface);
+  
+  /* Text Color Utilities (e.g., text-main, text-heading) */
+  --color-main: var(--color-main);
+  --color-heading: var(--color-heading);
+  --color-light: var(--color-light);
+  --color-on-accent: var(--color-on-accent);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Fonts */
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  
+  /* Radius defaults for the geometric feel */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Custom Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-up: fadeUp 0.8s ease-out forwards;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
+/* --- 3. Base Styles & Utilities --- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility: Glassmorphism for modern cards */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Utility: Premium Gradient Text */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
