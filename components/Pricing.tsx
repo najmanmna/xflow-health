@@ -1,147 +1,123 @@
 "use client";
 
-import { Check, ArrowRight, Info, ShieldCheck } from "lucide-react";
+import { ArrowRight, Info, ShieldCheck } from "lucide-react";
 
 const Pricing = () => {
-  const plans = [
+  const treatments = [
     {
-      name: "Flexible Monthly",
-      desc: "Pay as you go. Cancel anytime.",
-      price: "229",
-      period: "per month",
-      isPopular: false,
-      features: [
-        "GLP-1 Medication (Wegovy® / Mounjaro®)",
-        "Doctor consultation & approval",
-        "Next-day refrigerated delivery",
-        "Sharps bin & needles included",
-        "24/7 Clinical support team",
-      ],
-      cta: "Select Monthly",
-      href: "https://app.xflowhealth.com/start?plan=monthly",
+      category: "Complete Plan",
+      title: "Weight Loss Programme + Wegovy®", // Updated Title
+      desc: "Weekly injection. Clinically-proven results.",
+      price: "199",
+      unit: "/ month",
+      image: "https://placehold.co/400x600/fdf2f8/db2777?text=Wegovy+Box", 
+      badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+      href: "https://app.xflowhealth.com/start?product=wegovy",
     },
     {
-      name: "3-Month Bundle",
-      desc: "Commit to results & save money.",
-      price: "199",
-      period: "per month",
-      isPopular: true, // Highlights this card
-      saveLabel: "Save £90",
-      features: [
-        "Everything in Monthly",
-        "Guaranteed stock reservation",
-        "Priority clinician review",
-        "Quarterly weight tracking report",
-        "Free nutritional guide PDF",
-      ],
-      cta: "Select Bundle",
-      href: "https://app.xflowhealth.com/start?plan=bundle",
+      category: "Complete Plan",
+      title: "Weight Loss Programme + Mounjaro®", // Updated Title
+      desc: "Weekly injection. Dual-action treatment.",
+      price: "229",
+      unit: "/ month",
+      image: "https://placehold.co/400x600/fdf2f8/db2777?text=Mounjaro+Box",
+      badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+      href: "https://app.xflowhealth.com/start?product=mounjaro",
+    },
+    {
+      category: "Daily Support",
+      title: "Side Effect Relief + Supplements",
+      desc: "Anti-nausea & digestive comfort.",
+      price: "15",
+      unit: "/ bottle",
+      image: "https://placehold.co/400x600/f0fdf4/16a34a?text=Relief+Pills",
+      badgeColor: "bg-green-50 text-green-700 border-green-200",
+      href: "#",
+    },
+    {
+      category: "Diagnostics",
+      title: "Weight Loss Blood Profile",
+      desc: "Check liver, kidney & metabolic health.",
+      price: "59",
+      unit: "/ kit",
+      image: "https://placehold.co/400x600/eff6ff/2563eb?text=Blood+Test+Kit",
+      badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
+      href: "#",
     },
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-surface relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-[500px] bg-white skew-y-3 -translate-y-20 z-0" />
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+    <section id="pricing" className="py-24 bg-surface-white relative">
+      <div className="container mx-auto px-4 md:px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold text-primary tracking-tight">
-            Simple, transparent pricing.
+        {/* Header */}
+        <div className="mb-12">
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">
+            Treatment Options
+          </span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">
+            Effective solutions for your journey
           </h2>
-          <p className="text-lg text-main/80">
-            No hidden fees. No joining costs. Just effective treatment.
+          <p className="text-gray-500 mt-2 text-lg">
+            A complete ecosystem to change your weight, health, and habits.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col p-8 rounded-3xl transition-all duration-300 ${
-                plan.isPopular
-                  ? "bg-white border-2 border-accent shadow-xl scale-105 z-10"
-                  : "bg-white/60 border border-gray-200 hover:border-gray-300 hover:bg-white"
-              }`}
+        {/* Product Shelf Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {treatments.map((item, index) => (
+            <div 
+              key={index} 
+              className="group flex flex-col p-6 rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1"
             >
-              {plan.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-accent text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg">
-                  Most Popular
+              {/* Text Top */}
+              <div className="text-center mb-6">
+                {/* Category Badge */}
+                <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide border mb-3 ${item.badgeColor}`}>
+                  {item.category}
+                </span>
+                
+                {/* Title - Adjusted size for longer text */}
+                <h3 className="text-lg font-heading font-bold text-primary mb-1 leading-tight min-h-[44px] flex items-center justify-center">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mb-3 line-clamp-1">
+                  {item.desc}
+                </p>
+                <div className="flex justify-center items-baseline gap-1">
+                  <span className="text-sm font-medium text-gray-400">From</span>
+                  <span className="text-xl font-bold text-primary">£{item.price}</span>
+                  <span className="text-sm font-medium text-gray-400">{item.unit}</span>
                 </div>
-              )}
-
-              {/* Header */}
-              <div className="mb-6">
-                <h3 className="text-xl font-heading font-bold text-primary">{plan.name}</h3>
-                <p className="text-sm text-light mt-1">{plan.desc}</p>
               </div>
 
-              {/* Price */}
-              <div className="mb-8 flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-primary">£{plan.price}</span>
-                <span className="text-sm text-main font-medium">{plan.period}</span>
-                {plan.saveLabel && (
-                  <span className="ml-auto text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">
-                    {plan.saveLabel}
-                  </span>
-                )}
+              {/* Product Image (Centered) */}
+              <div className="flex-1 flex items-center justify-center mb-8 relative">
+                <div className="relative w-40 h-40">
+                   <img 
+                     src={item.image} 
+                     alt={item.title} 
+                     className="w-full h-full object-contain drop-shadow-lg transform group-hover:scale-105 transition-transform duration-500"
+                   />
+                </div>
               </div>
 
-              {/* Features */}
-              <ul className="space-y-4 mb-8 flex-1">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="mt-0.5 w-5 h-5 rounded-full bg-surface-gray flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3 text-primary" />
-                    </div>
-                    <span className="text-sm text-main">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Action Buttons - Light/Cyan Theme */}
+              <div className="grid grid-cols-2 gap-3 mt-auto">
+                <a 
+                  href={item.href}
+                  // Changed to Cyan Background (bg-accent) with Navy Text (text-primary)
+                  className="col-span-1 py-3 rounded-lg text-sm font-bold text-center flex items-center justify-center gap-1 transition-colors bg-accent text-primary hover:bg-[#33efff] shadow-md hover:shadow-cyan-200/50"
+                >
+                  Get Started <ArrowRight className="w-3 h-3" />
+                </a>
+                <button className="col-span-1 py-3 rounded-lg text-sm font-bold text-primary border border-gray-200 hover:border-accent hover:bg-surface-cyan transition-colors flex items-center justify-center">
+                  Learn more
+                </button>
+              </div>
 
-              {/* CTA */}
-              <a
-                href={plan.href}
-                className={`w-full py-4 rounded-xl font-bold text-center flex items-center justify-center gap-2 transition-all duration-300 ${
-                  plan.isPopular
-                    ? "bg-accent hover:bg-accent/90 text-primary shadow-lg shadow-cyan-200/50"
-                    : "bg-primary hover:bg-secondary text-white"
-                }`}
-              >
-                {plan.cta}
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              
-              {/* Micro-Copy */}
-              <p className="text-center text-[10px] text-light mt-4 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3 h-3" />
-                Price includes medication & delivery
-              </p>
             </div>
           ))}
-        </div>
-
-        {/* The "Included Value" Strip */}
-        <div className="mt-20 border-t border-gray-200 pt-12">
-          <p className="text-center text-xs font-bold text-light uppercase tracking-widest mb-10">
-            Included in every plan
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { title: "Free Consultation", desc: "Online assessment review" },
-              { title: "Ongoing Care", desc: "Unlimited clinician messaging" },
-              { title: "Discreet Delivery", desc: "Plain, tracked packaging" },
-              { title: "Cancel Anytime", desc: "No long-term contracts" },
-            ].map((item, i) => (
-              <div key={i} className="space-y-2">
-                <h4 className="text-sm font-bold text-primary">{item.title}</h4>
-                <p className="text-xs text-main">{item.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

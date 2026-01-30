@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "@/public/logo.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,34 +26,29 @@ const Navbar = () => {
 
   return (
     <>
-      {/* --- Top Trust Bar (Optional but high-value) --- */}
-      <div className="bg-primary py-2 text-center text-xs font-medium text-white tracking-wide">
-        <span className="opacity-90">
-          🇬🇧 UK Registered Pharmacy • CQC Regulated Service
-        </span>
-      </div>
-
       {/* --- Main Navigation --- */}
       <header
-        className={`fixed top-[32px] left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-            : "bg-white py-5"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           
           {/* Logo Section */}
-<a href="/" className="flex items-center gap-2 group">
-            {/* Updated Height: Increased to h-10 (mobile) and h-14 (desktop).
-               This accommodates vertical logos better, but you MUST crop the tagline 
-               for it to be legible.
-            */}
+          <a href="/" className="flex items-center gap-2 group">
+            {/* Using text logo for safety if image is missing, swap to <img> if file exists */}
+            {/* <div className="text-2xl font-heading font-bold text-primary tracking-tight">
+              xflow<span className="text-accent">.</span>
+            </div> */}
+                  
             <img 
               src="/logo.png" 
               alt="Xflow Health" 
-              className="h-10 w-auto md:h-14 object-contain" 
-            />
+              className="h-8 w-auto md:h-10 object-contain" 
+            /> 
+           
           </a>
 
           {/* Desktop Links */}
@@ -74,11 +68,11 @@ const Navbar = () => {
           {/* CTA Button (Desktop) */}
           <div className="hidden md:block">
             <a
-              href="https://app.xflowhealth.com/start" // Placeholder External Link
-              className="bg-primary hover:bg-secondary text-white text-sm font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2"
+              href="https://app.xflowhealth.com/start" 
+              className="bg-accent hover:bg-[#33efff] text-primary text-sm font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-cyan-200/50 flex items-center gap-2"
             >
               Start Consultation
-              <ChevronRight className="w-4 h-4 text-accent" />
+              <ChevronRight className="w-4 h-4 text-primary" />
             </a>
           </div>
 
@@ -119,13 +113,11 @@ const Navbar = () => {
             <div className="mt-auto">
               <a
                 href="#"
-                className="w-full bg-accent text-text-on-accent font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform"
+                className="w-full bg-accent text-primary font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform"
               >
                 Start Consultation
               </a>
-              <div className="mt-4 text-center text-xs text-gray-400">
-                Regulated by the Care Quality Commission
-              </div>
+              {/* Removed CQC regulated text here too for compliance */}
             </div>
           </motion.div>
         )}
