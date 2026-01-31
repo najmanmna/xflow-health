@@ -5,7 +5,7 @@ import { Brain, Clock, Activity, Check, TrendingDown } from "lucide-react";
 const Science = () => {
   return (
     // Reduced vertical padding for tighter viewport fit
-    <section className="py-12 md:py-16 bg-surface-white relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-surface-white relative overflow-hidden overflow-y-hidden">
       <div className="container mx-auto px-4 md:px-6">
         {/* Reduced gap from 16/20 to 8/12 */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">

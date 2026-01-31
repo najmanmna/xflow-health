@@ -22,13 +22,14 @@ import Pricing from "@/components/Pricing";
 import Science from "@/components/Science";
 import TrustMarquee from "@/components/TrustMarquee";
 import CircularCare from "@/components/CircularCare";
+import FAQ from "@/components/FAQ";
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-emerald-200 selection:text-slate-900">
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Hero />
       <TrustMarquee />
@@ -37,6 +38,8 @@ export default function HomePage() {
       <Science />
            <HowItWorks />
       <Pricing />
+      <FAQ  />
+      {/* <Footer /> */}
 
  
     </div>

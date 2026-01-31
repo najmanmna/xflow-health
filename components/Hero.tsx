@@ -4,7 +4,7 @@ import { CheckCircle, ArrowRight, Star, Activity, Stethoscope, TestTube, Pill, T
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-12 lg:pt-32 lg:pb-20 lg:min-h-[90vh] flex flex-col justify-center overflow-hidden bg-[#E0F9FB] selection:bg-primary/20 selection:text-primary">
+    <section className="relative overflow-y-hidden pt-32 pb-12 lg:pt-32 lg:pb-20 lg:min-h-[90vh] flex flex-col justify-center overflow-hidden bg-[#E0F9FB] selection:bg-primary/20 selection:text-primary">
       
       {/* --- BACKGROUND DECOR --- */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
